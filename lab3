@@ -1,0 +1,33 @@
+#include&lt;stdio.h&gt;
+void main(){
+int n;
+printf(&quot;\nplease enter the value in array :: &quot;);
+scanf(&quot;%d&quot;,&amp;n);
+int arr[n],res[n],v,i;
+printf(&quot;\nPlease enter the elements in plaint text array ::&quot;);
+for(i=0;i&lt;n;i++){
+scanf("%d",&amp;arr[i]);
+}
+printf(&quot;\nPlease enter the value of initial vector ::&quot;);
+scanf("%d",&amp;v);
+int key;
+printf("\nPlease enter the value of Key ::";);
+scanf("%d",&amp;key);
+res[0]=arr[0]+v+key;
+for(i=1;i&lt;n;i++){
+res[i]=res[i-1]+key+arr[i];
+}
+printf("\n*********************** Encryption *************************\n");
+for(i=0;i&lt;n;i++){
+printf(" %d ",res[i]);
+}
+printf(&quot;\n*********************** Decryption *************************\n&quot;);
+for(i=n;i>0;i--){
+
+res[i]=res[i]-res[i-1]-key;
+}
+res[0]=res[0]-key-v;
+for(i=0;i<n;i++){
+printf("%d ",res[i]);
+}
+}
