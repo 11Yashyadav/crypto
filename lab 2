@@ -1,39 +1,26 @@
 #include<stdio.h>
 #include<string.h>
 void main(){
-    int n;
+    int n;     char k1;
     printf("Please enter the size of Plaintext :");
     scanf("%d",&n);
     char msg[n],key[n],ans[n];
     printf("Please enter the Message::");
     scanf("%s",msg);
-    char k1;
     printf("Please enter the value of autokey:");
     scanf(" %c",&k1);
     printf("*********************Autokey is generated****************\n");
     for(int i=1;i<n;i++){
-        key[i]=msg[i-1];
-    }
+        key[i]=msg[i-1];}
     key[0]=k1;
-    printf("%s",key);
     for(int i=0;i<n;i++){
-        if(msg[i]+key[i]>122){
-            ans[i]=(((msg[i]-97+key[i]-97)%26)+97);
-        }
-        else{
-            ans[i]=(msg[i]+key[i]);
-        }
-    }
+        printf("%c",key[i]);  }
+    for(int i=0;i<n;i++){
+            ans[i]=((((msg[i]-97)+(key[i]-97))%26)+97); }
     printf("\n************ encryptated text using autokey ********************\n");
-    printf("%s",ans);
+    for(int i=0;i<n;i++){
+        printf("%c",ans[i]);}
     int rkey;
     printf("\nplease enter the key for rail fench :");
     scanf("%d",&rkey);
     printf("\n************ encryptated text using Rail fench ******************\n");
-    int i=0,j=0,gap;
-    gap=2*rkey-3;
-        printf("%c",ans[0]);
-        for(j=0;j<n;j++){
-        printf("%c",ans[j+gap]);
-        }   
-}
