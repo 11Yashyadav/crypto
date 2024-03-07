@@ -1,0 +1,128 @@
+Part 1
+#include<stdio.h>
+void main(){
+    int arr[4][4]; int i,j;
+    printf("please enter the matrix ::");
+    for(i=0;i<4;i++)
+    for(j=0;j<4;j++)
+scanf("%d",&arr[i][j]);
+printf("\nMatrix ::\n");
+    for(i=0;i<4;i++){
+        for( j=0;j<4;j++){
+        printf("%d ",arr[i][j]); }
+        printf("\n");   }
+    printf("\nState Matrix:\n");
+    for(int i=0;i<4;i++){
+        for( int j=0;j<4;j++){
+        printf("%d ",arr[j][i]); }
+        printf("\n");}}
+Output 
+
+Part 2
+#include<stdio.h>
+void main(){
+    int arr[4][4]; int i,j,k;
+    printf("please enter the matrix ::");
+    for(i=0;i<4;i++)
+    for(j=0;j<4;j++)
+scanf("%d",&arr[i][j]);
+printf("\nMatrix ::\n");
+    for(i=0;i<4;i++){
+        for( j=0;j<4;j++){
+        printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }printf("\nMatrix after The ShiftRows transformation::\n");
+    for(i=0;i<4;i++){
+        for( j=0;j<i;j++){
+        int temp=arr[i][0];
+        for(k=1;k<4;k++){
+            arr[i][k-1]=arr[i][k];
+        }
+        arr[i][3]=temp;
+        }
+    }
+    for(i=0;i<4;i++){
+        for( j=0;j<4;j++){
+        printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+Output
+
+Part 3
+#include<stdio.h>
+void main(){
+    int arr[4][4]; int i,j;
+    printf("please enter the matrix ::");
+    for(i=0;i<4;i++)
+    for(j=0;j<4;j++)
+scanf("%d",&arr[i][j]);
+ int rr[4][4];
+  printf("\nplease enter the  round key matrix ::");
+    for(i=0;i<4;i++)
+    for(j=0;j<4;j++)
+scanf("%d",&rr[i][j]);
+ 
+printf("\n State Matrix ::\n");
+    for(i=0;i<4;i++){
+        for( j=0;j<4;j++){
+        printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n Round Key Matrix ::\n");
+    for(i=0;i<4;i++){
+        for( j=0;j<4;j++){
+        printf("%d ",rr[i][j]);
+        }
+        printf("\n");
+    }
+    int new[4][4];
+    printf("\n New Matrix ::\n");
+    for(i=0;i<4;i++){
+        for( j=0;j<4;j++){
+            new[i][j]=arr[i][j]+rr[i][j];
+        printf("%d ",new[i][j]);
+        }
+        printf("\n");
+    }
+}
+Output 
+
+Part 4
+#include<stdio.h>
+void main(){
+    int arr[4][4]; int i,k,j;
+    printf("please enter the constant matrix ::");
+    for(i=0;i<4;i++)
+    for(j=0;j<4;j++)
+scanf("%d",&arr[i][j]);
+ int rr[4][4];
+  printf("\nplease enter the  old matrix ::");
+    for(i=0;i<4;i++)
+    for(j=0;j<4;j++)
+scanf("%d",&rr[i][j]);
+printf("\n constant Matrix ::\n");
+    for(i=0;i<4;i++){
+        for( j=0;j<4;j++){
+        printf("%d ",arr[i][j]);}
+        printf("\n"); }
+    printf("\n old Matrix ::\n");
+    for(i=0;i<4;i++){
+        for( j=0;j<4;j++){
+        printf("%d ",rr[i][j]);
+        }
+        printf("\n");  }
+    int new[4][4];
+    printf("multiply of the matrix=\n");    
+for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            new[i][j] = 0;
+            for (k = 0; k < 4; k++) {
+                new[i][j] += arr[i][k] * rr[k][j];  }
+            printf("%d\t", new[i][j]); }
+        printf("\n");}  }
+Output 
+
