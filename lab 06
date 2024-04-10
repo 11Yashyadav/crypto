@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <math.h>
+long long int power(int base ,int pwr, int mod){
+    long long int ans=1 ;
+    int i;
+    for ( i = 0; i < pwr; i++)
+    {
+        ans= (ans*base) % mod;
+    }
+    return ans;
+}
+void main(){
+    int p,e1,e2,r,m,d;
+    printf("\nPlease enter the value of p ::");
+    scanf("%d",&p);
+    printf("\nPlease enter the value of e1 ::");
+    scanf("%d",&e1);
+    printf("\nPlease enter the value of e2 ::");
+    scanf("%d",&e2);
+    printf("\nPlease enter the value of r ::");
+    scanf("%d",&r);
+    printf("\nPlease enter the value of m ::");
+    scanf("%d",&m);
+    printf("\nPlease enter the value of d ::");
+    scanf("%d",&d);
+    int r1,i=0;
+    for(i=1;i<p;i++){
+        if((r*i%(p-1))==1){
+            r1=i;
+        }
+    }
+    printf("r inverse %d",r1);
+    long int s1,s2;
+    s1 = power(e1,r,p);
+    s2= ((m-(d*s1))*r1)%(p-1);
+    while(s2 < 0){
+        s2=s2+(p-1);
+    }
+    printf("\nS1 ::%d",s1);
+    printf("\nS2 ::%d",s2);
+    int v1,v2;
+    v1= power(e1,m,p);
+    v2= (power(e2,s1,p)*power(s1,s2,p))%p;
+    printf("\nV1 %d",v1);
+    printf("\nV2 %d",v2);
+    if(v1 == v2){
+        printf("\n Accept");
+    }
+    else{
+        printf("\n Something  Wrong");
+    }
+}
