@@ -1,0 +1,33 @@
+#include<stdio.h>
+int power(int b,int p,int mod){
+    int ans=1;
+    for(int i=0;i<p;i++){
+        ans=(ans*b)%mod;
+    }
+    return ans;
+}
+void main(){
+    int p,q,n,pi;
+    printf("Please enter the value of p and q::");
+    scanf("%d %d",&p,&q);
+    n = p*q;
+    pi=(p-1)*(q-1);
+    int e;
+    int pl;
+    printf("\nPlease enter the Plaintext size ::");
+    scanf("%d",&pl);
+    printf("\nPlease enter the vale of e ::");
+    scanf("%d",&e);
+    int d=1;
+    while(((d*e)%pi)!=1){
+        d++;
+    }
+    printf("\n%d",d);
+    printf("\nPublic key ::(%d,%d)",e,n);
+    printf("\nPrivate key :: %d",d);
+    printf("\n******************** Encryption *************************");
+    int c = power(pl,e,n);
+    printf("Encrypted text : %d",power(pl,e,n));
+    printf("\n********************* Decryption **************************");
+    printf("Decrypted test :: %d",power(c,d,n));
+}
